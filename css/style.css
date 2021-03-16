@@ -1,0 +1,93 @@
+header{
+    background-color: #3f8f8d;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+table td {
+    padding: 10px;
+    /* float: left; */
+    text-align: center;
+    width: fit-content;
+}
+
+fieldset {
+    border: 1px;
+    display: block;
+    padding: 20px;
+    border: 1px dotted;
+    width: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px;
+    padding: 30px;
+    padding-top: 30px;
+
+}
+
+input {
+    display: block;
+}
+
+.div1 {
+    padding: 20px;
+}
+.div2 {
+    padding-top: 31px;
+    align-items: center;
+}
+table tr:nth-child(odd) {background-color: #f6b8d1;}
+table tr:nth-child(even) {background-color: #ffd3de;}
+
+table {
+padding: 70px;
+width: 80%;
+}
+
+label{
+    display: block;
+    font-size: large;
+    font-weight: bold;
+    padding: 10px;
+
+}
+
+.submit {
+    background-color: #609c4d;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+}
+
+table tr {
+    border-bottom: 1px solid white;
+    height: 50px;
+    text-align: center;
+}
+
+
+
+footer {
+    background-color: #5dc0a6;
+    color: white;
+    text-align: center;
+    /* height: 30px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+img {
+    width: 60px;
+    height: 60px;
+}
