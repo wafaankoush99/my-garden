@@ -11,7 +11,7 @@ function Obj ( nameF,option,season ) {
   this.nameF=nameF;
   this.option=option;
   this.season=season;
-  this.img = `./imgs/${option}.jpeg`;
+  this.img = `imgs/${option}.jpeg`;
   allObj.push( this );
 
 }
