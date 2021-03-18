@@ -5,20 +5,20 @@ let myTable = document.getElementById( 'myTable' );
 let header = ['#' ,'Image' , 'Name' , 'Season'];
 
 
-let allObj = [];
+let allFlowerList = [];
 
-function Obj ( nameF,option,season ) {
+function flowerList ( nameF,option,season ) {
   this.nameF=nameF;
   this.option=option;
   this.season=season;
-  this.img = `imgs/${option}.jpeg`;
-  allObj.push( this );
+  // this.img = `imgs/${option}.jpeg`;
+  allFlowerList.push( this );
 
 }
 tableHeader ();
 
 
-Obj.prototype.render = function(){
+flowerList.prototype.render = function(){
   let tr = document.createElement( 'tr' );
 
 
@@ -32,7 +32,7 @@ Obj.prototype.render = function(){
 
   let myImg = document.createElement( 'img' );
   td.appendChild( myImg );
-  myImg.src = `./imgs/${this.option}.jpeg`;
+  myImg.src = `imgs/${this.option}.jpeg`;
   console.log( myImg.src );
 
 
@@ -56,22 +56,22 @@ function handleClick( event ){
   let option = event.target.option.value;
   let season = event.target.season.value;
 
-  let newObj = new Obj ( nameF,option,season );
+  let newObj = new flowerList ( nameF,option,season );
   newObj.render();
-  localStorage.setItem( 'data', JSON.stringify( allObj ) );
+  localStorage.setItem( 'data', JSON.stringify( allFlowerList ) );
 
 }
 
 function checkLS(){
   if ( localStorage.getItem( 'data' ) ){
-    allObj = JSON.parse( localStorage.getItem( 'data' ) );
+    allFlowerList = JSON.parse( localStorage.getItem( 'data' ) );
     renderLS();
 
   }
 }
 
 function renderLS(){
-  for ( let i=0; i < allObj.length;i++ ){
+  for ( let i=0; i < allFlowerList.length;i++ ){
 
     let tr = document.createElement( 'tr' );
 
@@ -84,14 +84,14 @@ function renderLS(){
 
     let myImg = document.createElement( 'img' );
     td.appendChild( myImg );
-    myImg.src = `./imgs/${allObj[i].option}.jpeg`;
+    myImg.src = `imgs/${allFlowerList[i].option}.jpeg`;
     console.log( myImg.src );
 
     let td2 = document.createElement( 'td' );
-    td2.textContent = allObj[i].option;
+    td2.textContent = allFlowerList[i].option;
 
     let td3 = document.createElement( 'td' );
-    td3.textContent = allObj[i].season;
+    td3.textContent = allFlowerList[i].season;
 
     myTable.appendChild( tr );
     tr.appendChild( td );
