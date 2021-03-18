@@ -32,7 +32,7 @@ flowerList.prototype.render = function(){
 
   let myImg = document.createElement( 'img' );
   td.appendChild( myImg );
-  myImg.src = `imgs/${this.option}.jpeg`;
+  myImg.src = `./imgs/${this.option.toLowerCase()}.jpeg`;
   console.log( myImg.src );
 
 
@@ -53,7 +53,7 @@ function handleClick( event ){
   event.preventDefault();
 
   let nameF = event.target.nameF.value;
-  let option = event.target.option.value;
+  let option = event.target.option.value.toLowerCase();
   let season = event.target.season.value;
 
   let newObj = new flowerList ( nameF,option,season );
@@ -84,7 +84,7 @@ function renderLS(){
 
     let myImg = document.createElement( 'img' );
     td.appendChild( myImg );
-    myImg.src = `imgs/${allFlowerList[i].option}.jpeg`;
+    myImg.src = `./imgs/${allFlowerList[i].option.toLowerCase()}.jpeg`;
     console.log( myImg.src );
 
     let td2 = document.createElement( 'td' );
@@ -100,11 +100,11 @@ function renderLS(){
   }
 }
 
-function lower()
-{
-  let lc = document.getElementById( 'nameF' ).value;
-  document.getElementById( 'nameF' ).value = lc.toLowerCase();
-}
+// function lower()
+// {
+//   let lc = document.getElementById( 'nameF' ).value;
+//   document.getElementById( 'nameF' ).value = lc.toLowerCase();
+// }
 
 
 function tableHeader () {
@@ -119,6 +119,6 @@ function tableHeader () {
 
 }
 
-lower();
+// lower();
 checkLS();
 myForm.addEventListener( 'submit', handleClick );
