@@ -11,7 +11,6 @@ function flowerList ( nameF,option,season ) {
   this.nameF=nameF;
   this.option=option;
   this.season=season;
-  // this.img = `imgs/${option}.jpeg`;
   allFlowerList.push( this );
 
 }
@@ -20,13 +19,18 @@ tableHeader ();
 
 flowerList.prototype.render = function(){
   let tr = document.createElement( 'tr' );
+  // tr.setAttribute('id', 'myRow');
 
 
 
+
+  let tdX = document.createElement( 'td' );
+  // x.textContent='x';
+  tr.appendChild( tdX );
 
   let x = document.createElement( 'button' );
-  x.textContent='x';
-  tr.appendChild( x );
+  tdX.appendChild( x );
+  x.textContent = 'x';
   let td = document.createElement( 'td' );
   tr.appendChild( td );
 
@@ -53,7 +57,7 @@ function handleClick( event ){
   event.preventDefault();
 
   let nameF = event.target.nameF.value;
-  let option = event.target.option.value.toLowerCase();
+  let option = event.target.option.value;
   let season = event.target.season.value;
 
   let newObj = new flowerList ( nameF,option,season );
@@ -74,10 +78,18 @@ function renderLS(){
   for ( let i=0; i < allFlowerList.length;i++ ){
 
     let tr = document.createElement( 'tr' );
+    // tr.setAttribute('id', 'myRow');
+
+    // let x = document.createElement( 'td' );
+    // x.textContent='x';
+    // tr.appendChild( x );
+    let tdX = document.createElement( 'td' );
+    // x.textContent='x';
+    tr.appendChild( tdX );
 
     let x = document.createElement( 'button' );
-    x.textContent='x';
-    tr.appendChild( x );
+    tdX.appendChild( x );
+    x.textContent = 'x';
 
     let td = document.createElement( 'td' );
     tr.appendChild( td );
@@ -100,11 +112,6 @@ function renderLS(){
   }
 }
 
-// function lower()
-// {
-//   let lc = document.getElementById( 'nameF' ).value;
-//   document.getElementById( 'nameF' ).value = lc.toLowerCase();
-// }
 
 
 function tableHeader () {
@@ -119,6 +126,25 @@ function tableHeader () {
 
 }
 
-// lower();
+function removeTable() {
+  localStorage.removeItem( 'data' );
+  let elem = document.getElementById( 'myTable' );
+  elem.parentNode.removeChild( elem );
+}
+
+// function removeRow() {
+//   let row = document.getElementById( 'myTable' );
+//   row.parentNode.removeChild( row );
+// }
+
+function delRow(event){
+  let td = event.target.parentNode; 
+  let tr = td.parentNode; // the row to be removed
+  tr.parentNode.removeChild(tr);
+}
+// delRow( 'x' );
+
 checkLS();
 myForm.addEventListener( 'submit', handleClick );
+
+myTable.addEventListener( 'click', delRow );
